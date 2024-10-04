@@ -3,14 +3,10 @@ import uvicorn
 
 
 app = FastAPI()
-
-
-
-@app.post('/')
-def hello_func(hello: str):
-    ...
-    
-
+app.router.include_router(
+    api_router,
+    prefix=settings.api.prefix,
+)
 
 
 if __name__ == "__main__":
